@@ -1,14 +1,15 @@
 <?php namespace Way\Database;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
+use Eloquent;
+use Illuminate\Support\MessageBag;
 use Illuminate\Validation\Validator;
 
 class Model extends Eloquent {
 
     /**
      * Error message bag
-     * 
-     * @var Illuminate\Support\MessageBag
+     *
+     * @var MessageBag
      */
     protected $errors;
 
@@ -28,8 +29,8 @@ class Model extends Eloquent {
 
     /**
      * Validator instance
-     * 
-     * @var Illuminate\Validation\Validators
+     *
+     * @var Validator
      */
     protected $validator;
 
@@ -73,8 +74,8 @@ class Model extends Eloquent {
 
     /**
      * Set error message bag
-     * 
-     * @var Illuminate\Support\MessageBag
+     *
+     * @var MessageBag
      */
     protected function setErrors($errors)
     {
