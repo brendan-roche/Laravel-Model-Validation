@@ -56,14 +56,21 @@ class Model extends Eloquent {
     }
 
     /**
+     * @return Validator
+     */
+    protected function makeValidator()
+    {
+        return $this->validator->make($this->attributes, static::$rules, static::$messages);
+    }
+
+    /**
      * Validates current attributes against rules
      */
     public function validate()
     {
-        $v = $this->validator->make($this->attributes, static::$rules, static::$messages);
+        $v = $this->makeValidator();
 
-        if ($v->passes())
-        {
+        if ($v->passes()) {
             return true;
         }
 
