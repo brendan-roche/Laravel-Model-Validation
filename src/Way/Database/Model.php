@@ -48,7 +48,7 @@ class Model extends Eloquent {
     {
         parent::boot();
 
-        static::saving(function($model)
+        static::saving(function(Model $model)
         {
             // Returning true would prevent other event listeners from firing
             return $model->validate() ? null : false;
